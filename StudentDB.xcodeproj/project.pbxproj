@@ -33,10 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD7C909C1AD66768004A2E84 /* CourseDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDBManager.h; path = ../../sqliteCourseStudent/SqliteCourseStudent/CourseDBManager.h; sourceTree = "<group>"; };
-		DD7C909D1AD66768004A2E84 /* CourseDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDBManager.m; path = ../../../Downloads/sqliteCourseStudent/SqliteCourseStudent/CourseDBManager.m; sourceTree = "<group>"; };
+		DD7C909C1AD66768004A2E84 /* CourseDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDBManager.h; path = ../../../Documents/iOS_lab4/StudentDB/CourseDBManager.h; sourceTree = "<group>"; };
+		DD7C909D1AD66768004A2E84 /* CourseDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDBManager.m; path = ../../../Documents/iOS_lab4/StudentDB/CourseDBManager.m; sourceTree = "<group>"; };
 		DD7C909F1AD671EC004A2E84 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		DD7C90A11AD67550004A2E84 /* coursedb.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursedb.db; path = ../../../Downloads/coursedb.db; sourceTree = "<group>"; };
+		DD7C90A11AD67550004A2E84 /* coursedb.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursedb.db; path = ../../../Documents/iOS_lab4/StudentDB/coursedb.db; sourceTree = "<group>"; };
 		DDC5D5B21AD5278800D700D8 /* StudentDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC5D5B61AD5278800D700D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC5D5B71AD5278800D700D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
