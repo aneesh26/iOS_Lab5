@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
+#import "CourseDBManager.h"
 
 @interface CourseViewTable : UITableViewController
+@property (strong, nonatomic) NSString *databasePath;
+@property (nonatomic) sqlite3 *courseDB;
+
+@property (strong, nonatomic) IBOutlet UILabel *status;
+
+
+
 
 @end

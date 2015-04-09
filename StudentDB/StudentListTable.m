@@ -13,13 +13,18 @@
 @property (strong, nonatomic) IBOutlet UITableView *studentTable;
 @property (strong, nonatomic) NSMutableArray * studentList;
 
+@property (strong, nonatomic) NSString * query;
+@property (strong, nonatomic) CourseDBManager * crsDB;
+
 @end
 
 @implementation StudentListTable
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.title = @"Student List";
+    
+    /*
+    self.title = @"Student List";
     self.studentTable.dataSource = self;
     
     self.studentList = [[NSMutableArray alloc] init];
@@ -31,6 +36,14 @@
     [self.studentList addObject:@"Student 3"];
     NSLog(@"No of rows %lu",[self.studentList count] );
     [self.studentTable reloadData];
+     */
+    
+    self.studentTable.dataSource = self;
+    self.query = [NSString stringWithFormat:@"select name from student,studenttakes,course where course.coursename = '%@' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;",self.selectedCourse];
+    self.crsDB = [[CourseDBManager alloc] initDatabaseName:@"coursedb"];
+    self.navigationItem.title = [[self.selectedCourse substringToIndex:7] stringByAppendingString:@"Students"];
+    
+    
     
 }
 
@@ -54,16 +67,19 @@
     
     // Return the number of rows in the section.
     
-    return [self.studentList count];
+   // return [self.studentList count];
     //  NSLog([NSString stringWithFormat:@"No of rows %f",[self.courseList count] ]);
     //   return [[self.wpLib allKeys] count];
+    
+    NSArray * queryRes = [self.crsDB executeQuery:self.query];
+    return queryRes.count;
     
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+   /*
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
@@ -85,6 +101,24 @@
     // Configure the cell...
     
     return cell;
+    */
+    
+    
+    NSArray * queryRes = [self.crsDB executeQuery:self.query];
+    NSString * whichStud = @"unknown";
+    if(queryRes.count> indexPath.row){
+        whichStud = queryRes[indexPath.row][0];
+    }
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"Cell"];
+    }
+    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.text = whichStud;
+    return cell;
+    
+    
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
