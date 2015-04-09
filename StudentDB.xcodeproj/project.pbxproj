@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD7C909E1AD66768004A2E84 /* CourseDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C909D1AD66768004A2E84 /* CourseDBManager.m */; };
+		DD7C90A01AD671EC004A2E84 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7C909F1AD671EC004A2E84 /* libsqlite3.dylib */; };
+		DD7C90A21AD67550004A2E84 /* coursedb.db in Resources */ = {isa = PBXBuildFile; fileRef = DD7C90A11AD67550004A2E84 /* coursedb.db */; };
 		DDC5D5B81AD5278800D700D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D5B71AD5278800D700D8 /* main.m */; };
 		DDC5D5BB1AD5278800D700D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D5BA1AD5278800D700D8 /* AppDelegate.m */; };
 		DDC5D5BE1AD5278800D700D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5D5BD1AD5278800D700D8 /* ViewController.m */; };
@@ -30,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD7C909C1AD66768004A2E84 /* CourseDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDBManager.h; path = ../../../Downloads/sqliteCourseStudent/SqliteCourseStudent/CourseDBManager.h; sourceTree = "<group>"; };
+		DD7C909D1AD66768004A2E84 /* CourseDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDBManager.m; path = ../../../Downloads/sqliteCourseStudent/SqliteCourseStudent/CourseDBManager.m; sourceTree = "<group>"; };
+		DD7C909F1AD671EC004A2E84 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DD7C90A11AD67550004A2E84 /* coursedb.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursedb.db; path = ../../../Downloads/coursedb.db; sourceTree = "<group>"; };
 		DDC5D5B21AD5278800D700D8 /* StudentDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC5D5B61AD5278800D700D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC5D5B71AD5278800D700D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7C90A01AD671EC004A2E84 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +80,7 @@
 		DDC5D5A91AD5278800D700D8 = {
 			isa = PBXGroup;
 			children = (
+				DD7C909F1AD671EC004A2E84 /* libsqlite3.dylib */,
 				DDC5D5B41AD5278800D700D8 /* StudentDB */,
 				DDC5D5CE1AD5278800D700D8 /* StudentDBTests */,
 				DDC5D5B31AD5278800D700D8 /* Products */,
@@ -104,6 +113,9 @@
 				DDC5D5DF1AD539A900D700D8 /* StudentListTable.m */,
 				DDC5D5E11AD53CD000D700D8 /* StudentDetails.h */,
 				DDC5D5E21AD53CD000D700D8 /* StudentDetails.m */,
+				DD7C909C1AD66768004A2E84 /* CourseDBManager.h */,
+				DD7C909D1AD66768004A2E84 /* CourseDBManager.m */,
+				DD7C90A11AD67550004A2E84 /* coursedb.db */,
 			);
 			path = StudentDB;
 			sourceTree = "<group>";
@@ -216,6 +228,7 @@
 			files = (
 				DDC5D5C11AD5278800D700D8 /* Main.storyboard in Resources */,
 				DDC5D5C61AD5278800D700D8 /* LaunchScreen.xib in Resources */,
+				DD7C90A21AD67550004A2E84 /* coursedb.db in Resources */,
 				DDC5D5C31AD5278800D700D8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC5D5DD1AD527C600D700D8 /* CourseViewTable.m in Sources */,
+				DD7C909E1AD66768004A2E84 /* CourseDBManager.m in Sources */,
 				DDC5D5BE1AD5278800D700D8 /* ViewController.m in Sources */,
 				DDC5D5E31AD53CD000D700D8 /* StudentDetails.m in Sources */,
 				DDC5D5BB1AD5278800D700D8 /* AppDelegate.m in Sources */,

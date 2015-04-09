@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CourseDBManager.h"
 
 @interface ViewController : UIViewController
 
+- (void) testQuery;
 
 @end
 
