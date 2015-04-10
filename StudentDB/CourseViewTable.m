@@ -10,12 +10,14 @@
 #import "ViewController.h"
 #import "StudentListTable.h"
 #import "CourseDetails.h"
+#import "StudentDetails.h"
 
 @interface CourseViewTable()
 
 @property (strong, nonatomic) IBOutlet UITableView *courseTableView;
 @property (strong, nonatomic) CourseDBManager * crsDB;
 @property (strong, nonatomic) NSString * queryResult;
+@property (strong, nonatomic) id  tempSender;
 
 
 
@@ -94,12 +96,28 @@
  }
 
 - (void)addClicked:(id)sender{
+    
+    UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Add Course / Student"
+                                                          message:@"What would you like to add?"
+                                                         delegate:self
+                                                cancelButtonTitle:@"Course"
+                                                otherButtonTitles:@"Student", nil];
+    
+    
+    
+    self.tempSender = sender;
+    
+    
+    [deleteAlert show];
  
    // NSArray * addRes = [self.crsDB executeQuery:@"insert into course values ('New Course',8)"];
     //[self.courseTableView reloadData];
     
-     [self performSegueWithIdentifier:@"CourseDetails" sender:sender];
+    
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -195,7 +213,39 @@
 }
 
 
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //  NSLog(@"Add button Clicked");
+    
+    
+    NSString *title = [alertView title];
+    
+    
+    if([title isEqual:@"Add Course / Student"]){
+        
+        NSString *buttonText = [alertView buttonTitleAtIndex:buttonIndex];
+        
+        if([buttonText isEqualToString:@"Course"])
+        {
+            [self performSegueWithIdentifier:@"CourseDetails" sender:self.tempSender];
+        }
+        else if([buttonText isEqualToString:@"Student"])
+        {
+            
+           [self performSegueWithIdentifier:@"AddStudent" sender:self.tempSender];
+            
+        }
+        
+    }//else if([title isEqual:@"Waypoint Removed"]){
+      //  [self.navigationController popViewControllerAnimated:YES];
+   // }
+    
+    
+    
+    
+    
+    
+}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -228,6 +278,7 @@
         NSLog(@"prepareForSeque setting course to %@",whichCrs);
         destViewController.parent = self;
         destViewController.selectedCourse = whichCrs;
+        destViewController.crsDB = self.crsDB;
         
         
         
@@ -236,6 +287,15 @@
     if([segue.identifier isEqualToString:@"CourseDetails"]){
         CourseDetails * destViewController = segue.destinationViewController;
         destViewController.crsDB = self.crsDB;
+    }
+    
+    if([segue.identifier isEqualToString:@"AddStudent"]){
+ 
+        
+        StudentDetails * destViewController = segue.destinationViewController;
+        destViewController.crsDB = self.crsDB;
+        destViewController.isNewStudent = YES;
+
     }
     
     

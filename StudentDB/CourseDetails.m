@@ -13,13 +13,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *cIDTF;
 
 
+
 @end
 
 @implementation CourseDetails
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-        UIBarButtonItem *btnSave = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveClicked:)];
+        UIBarButtonItem *btnSave = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveClicked:)];
 
         self.navigationItem.rightBarButtonItem = btnSave;
 }
