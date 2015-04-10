@@ -119,7 +119,7 @@
 
 -(void)dropClicked:(id)sender{
     
-    // delete from course where coursename='CSE 598 DAA';
+    
     
     //get courseid
     
