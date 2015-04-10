@@ -15,6 +15,12 @@
     [super viewDidLoad];
     
     self.title = @"Student Details";
+    
+    UIBarButtonItem *btnDel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(delClicked:)];
+    UIBarButtonItem *btnSave = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveClicked:)];
+    
+    
+    self.navigationItem.rightBarButtonItems = @[btnSave,btnDel];
 }
 
 @end

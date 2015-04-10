@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     /*
     self.title = @"Student List";
     self.studentTable.dataSource = self;
@@ -41,7 +42,7 @@
     self.studentTable.dataSource = self;
     self.query = [NSString stringWithFormat:@"select name from student,studenttakes,course where course.coursename = '%@' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;",self.selectedCourse];
     self.crsDB = [[CourseDBManager alloc] initDatabaseName:@"coursedb"];
-    self.navigationItem.title = [[self.selectedCourse substringToIndex:7] stringByAppendingString:@"Students"];
+    self.navigationItem.title = [self.selectedCourse stringByAppendingString:@" Students"];
     
     
     
@@ -138,6 +139,9 @@
         //    destViewController.wpLib = self.wpLib;
         //   destViewController.wpList = self.waypointList;
     }
+   
+    
+    
     
     
     

@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *status;
 
 
-
+- (NSArray *) getDataQuery;
+- (void)addClicked:(id)sender;
 
 @end

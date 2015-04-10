@@ -9,6 +9,7 @@
             <objects>
                 <tableViewController id="Kor-aL-L4K" customClass="CourseViewTable" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ob5-Cd-1gB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -30,17 +31,93 @@
                     <navigationItem key="navigationItem" title="Course List" id="QyI-gK-Ys9"/>
                     <connections>
                         <outlet property="courseTableView" destination="Ob5-Cd-1gB" id="9hi-Ws-QLU"/>
+                        <segue destination="3dY-ea-RmR" kind="show" identifier="CourseDetails" id="6vX-iW-tGs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8JD-fd-h0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-514.5" y="208"/>
         </scene>
-        <!--Student List Table-->
+        <!--Add Course-->
+        <scene sceneID="jzp-yP-5mX">
+            <objects>
+                <viewController id="3dY-ea-RmR" customClass="CourseDetails" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dab-cX-SVB"/>
+                        <viewControllerLayoutGuide type="bottom" id="TdE-1B-wch"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5eB-NX-TWb">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-vD-mjy">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="115" width="106" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1EV-h8-dqK">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="130" y="112" width="227" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kdE-XF-VVx">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="130" y="160" width="227" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3I-Ri-7HW">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="163" width="77" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="jYc-vD-mjy"/>
+                                <exclude reference="1EV-h8-dqK"/>
+                                <exclude reference="kdE-XF-VVx"/>
+                                <exclude reference="o3I-Ri-7HW"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="jYc-vD-mjy"/>
+                                <include reference="1EV-h8-dqK"/>
+                                <include reference="kdE-XF-VVx"/>
+                                <include reference="o3I-Ri-7HW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Course" id="Qml-aq-zgJ"/>
+                    <connections>
+                        <outlet property="cIDTF" destination="kdE-XF-VVx" id="gnW-df-0NY"/>
+                        <outlet property="cNameTF" destination="1EV-h8-dqK" id="J5Z-KG-5GD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLM-Ti-9nE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-513" y="922"/>
+        </scene>
+        <!--Student List-->
         <scene sceneID="Wbb-z2-kGC">
             <objects>
                 <tableViewController id="DlD-Lz-yDh" customClass="StudentListTable" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MQ0-uv-TgT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -50,7 +127,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Student Details" id="jQU-PS-gll"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="StudentDetails" id="jQU-PS-gll"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,10 +136,14 @@
                             <outlet property="delegate" destination="DlD-Lz-yDh" id="CEO-p9-EmV"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Student List" id="9GY-mE-0xd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qbp-SY-iW3"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="studentTable" destination="MQ0-uv-TgT" id="U90-2o-I7F"/>
                     </connections>
                 </tableViewController>
+                <barButtonItem systemItem="cancel" id="NxE-m6-WhC"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDd-3l-0iH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="199.5" y="208"/>
@@ -96,6 +177,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
