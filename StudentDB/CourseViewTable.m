@@ -9,11 +9,13 @@
 #import "CourseViewTable.h"
 #import "ViewController.h"
 #import "StudentListTable.h"
+#import "CourseDetails.h"
 
 @interface CourseViewTable()
 
 @property (strong, nonatomic) IBOutlet UITableView *courseTableView;
 @property (strong, nonatomic) CourseDBManager * crsDB;
+@property (strong, nonatomic) NSString * queryResult;
 
 
 
@@ -30,10 +32,10 @@
     self.navigationItem.title = @"Courses";
     self.crsDB = [[CourseDBManager alloc] initDatabaseName:@"coursedb"];
     
+    UIBarButtonItem *btnAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked:)];
     
-    
-    
-    
+    self.navigationItem.rightBarButtonItem = btnAdd;
+   
     
   /*
     self.courseTableView.dataSource = self;
@@ -49,9 +51,6 @@
     [self.courseTableView reloadData];
     
     */
-    
-    
-    
     /*
     
     
@@ -92,13 +91,15 @@
     }
     
     */
+ }
+
+- (void)addClicked:(id)sender{
+ 
+   // NSArray * addRes = [self.crsDB executeQuery:@"insert into course values ('New Course',8)"];
+    //[self.courseTableView reloadData];
     
-    
-    
-    
+     [self performSegueWithIdentifier:@"CourseDetails" sender:sender];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -114,8 +115,12 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
+    
     [self.courseTableView reloadData];
+    NSLog(@"Running View will appear");
 }
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
@@ -162,10 +167,20 @@
 
 */
 
+- (NSArray *) getDataQuery{
+    NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
+    return queryRes;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
+ //   NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
+   // self.queryResult =
+    NSArray * queryRes = [self getDataQuery];
+    
+    
+   // NSArray * addRes = [self.crsDB executeQuery:@"select coursename from course;"];
     NSString * whichCrs = @"unknown";
     if(queryRes.count> indexPath.row){
         whichCrs = queryRes[indexPath.row][0];
@@ -217,6 +232,10 @@
         
         
         
+    }
+    if([segue.identifier isEqualToString:@"CourseDetails"]){
+        CourseDetails * destViewController = segue.destinationViewController;
+        destViewController.crsDB = self.crsDB;
     }
     
     
