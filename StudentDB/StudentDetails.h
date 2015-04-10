@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
+#import "CourseDBManager.h"
 
 @interface StudentDetails : UIViewController
-
+@property (nonatomic,assign) BOOL * isNewStudent;
+@property (strong, nonatomic) CourseDBManager * crsDB;
+@property (strong, nonatomic) NSString * studentName;
+@property (strong, nonatomic) NSString * selectedCourse;
 @end

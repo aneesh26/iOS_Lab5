@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) CourseViewTable * parent;
 @property (strong, nonatomic) NSString * selectedCourse;
+@property (strong, nonatomic) CourseDBManager * crsDB;
 
 @end
