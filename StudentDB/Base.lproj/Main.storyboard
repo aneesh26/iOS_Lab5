@@ -48,6 +48,7 @@
                         <viewControllerLayoutGuide type="bottom" id="TdE-1B-wch"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5eB-NX-TWb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-vD-mjy">
@@ -111,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLM-Ti-9nE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-513" y="922"/>
+            <point key="canvasLocation" x="-922.5" y="1060"/>
         </scene>
         <!--Student List-->
         <scene sceneID="Wbb-z2-kGC">
@@ -140,6 +141,7 @@
                     <navigationItem key="navigationItem" title="Student List" id="9GY-mE-0xd"/>
                     <connections>
                         <outlet property="studentTable" destination="MQ0-uv-TgT" id="U90-2o-I7F"/>
+                        <segue destination="oom-AA-B0k" kind="show" identifier="SelectStudent" id="OtM-j2-32e"/>
                     </connections>
                 </tableViewController>
                 <barButtonItem systemItem="cancel" id="NxE-m6-WhC"/>
@@ -162,6 +164,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2p-BN-awM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1222.5" y="208"/>
+        </scene>
+        <!--Enroll Student-->
+        <scene sceneID="vZe-qR-sVM">
+            <objects>
+                <viewController id="oom-AA-B0k" customClass="StudentSelectView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j1e-Nf-OOD"/>
+                        <viewControllerLayoutGuide type="bottom" id="1TQ-13-iy8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bhD-bZ-0mJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Student to enroll in course " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DP-qc-6zl">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="70" y="83" width="260" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8F-mF-nbX">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="70" y="175" width="260" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-cq-W6x">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="195" y="112" width="10" height="21"/>
+                                </variation>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-N6-Ugf">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="294" width="400" height="162"/>
+                                </variation>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="7DP-qc-6zl"/>
+                                <exclude reference="D8F-mF-nbX"/>
+                                <exclude reference="6aY-cq-W6x"/>
+                                <exclude reference="1dq-N6-Ugf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="7DP-qc-6zl"/>
+                                <include reference="D8F-mF-nbX"/>
+                                <include reference="6aY-cq-W6x"/>
+                                <include reference="1dq-N6-Ugf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enroll Student" id="JF2-Mt-tf7"/>
+                    <connections>
+                        <outlet property="courseNameTF" destination="6aY-cq-W6x" id="2bY-CL-JDk"/>
+                        <outlet property="studentNameTF" destination="D8F-mF-nbX" id="dbG-tA-mPy"/>
+                        <outlet property="studentPicker" destination="1dq-N6-Ugf" id="qhK-eP-bwb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r7u-l7-rcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652.5" y="1060"/>
         </scene>
         <!--Student Details-->
         <scene sceneID="tne-QT-ifu">
@@ -334,10 +410,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="199.5" y="1037"/>
+            <point key="canvasLocation" x="-148.5" y="1060"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="prP-jE-UZU"/>
+        <segue reference="jQU-PS-gll"/>
     </inferredMetricsTieBreakers>
 </document>

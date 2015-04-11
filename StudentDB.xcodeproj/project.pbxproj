@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD46D5021AD7787600EAC45A /* CourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DD46D5011AD7787600EAC45A /* CourseDetails.m */; };
+		DD5634581AD9150E0068610B /* StudentSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5634571AD9150E0068610B /* StudentSelectView.m */; };
 		DD7C909E1AD66768004A2E84 /* CourseDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C909D1AD66768004A2E84 /* CourseDBManager.m */; };
 		DD7C90A01AD671EC004A2E84 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7C909F1AD671EC004A2E84 /* libsqlite3.dylib */; };
 		DD7C90A21AD67550004A2E84 /* coursedb.db in Resources */ = {isa = PBXBuildFile; fileRef = DD7C90A11AD67550004A2E84 /* coursedb.db */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		DD46D5001AD7787600EAC45A /* CourseDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetails.h; sourceTree = "<group>"; };
 		DD46D5011AD7787600EAC45A /* CourseDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetails.m; sourceTree = "<group>"; };
+		DD5634561AD9150E0068610B /* StudentSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentSelectView.h; sourceTree = "<group>"; };
+		DD5634571AD9150E0068610B /* StudentSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSelectView.m; sourceTree = "<group>"; };
 		DD7C909C1AD66768004A2E84 /* CourseDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDBManager.h; sourceTree = "<group>"; };
 		DD7C909D1AD66768004A2E84 /* CourseDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDBManager.m; sourceTree = "<group>"; };
 		DD7C909F1AD671EC004A2E84 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -121,6 +124,8 @@
 				DD46D5001AD7787600EAC45A /* CourseDetails.h */,
 				DD46D5011AD7787600EAC45A /* CourseDetails.m */,
 				DD7C90A11AD67550004A2E84 /* coursedb.db */,
+				DD5634561AD9150E0068610B /* StudentSelectView.h */,
+				DD5634571AD9150E0068610B /* StudentSelectView.m */,
 			);
 			path = StudentDB;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				DDC5D5BE1AD5278800D700D8 /* ViewController.m in Sources */,
 				DDC5D5E31AD53CD000D700D8 /* StudentDetails.m in Sources */,
 				DDC5D5BB1AD5278800D700D8 /* AppDelegate.m in Sources */,
+				DD5634581AD9150E0068610B /* StudentSelectView.m in Sources */,
 				DDC5D5E01AD539A900D700D8 /* StudentListTable.m in Sources */,
 				DDC5D5B81AD5278800D700D8 /* main.m in Sources */,
 			);
