@@ -1,10 +1,26 @@
-//
-//  StudentListTable.m
-//  StudentDB
-//
-//  Created by ashastry on 4/8/15.
-//  Copyright (c) 2015 Aneesh Shastry. All rights reserved.
-//
+/**
+ * Copyright 2015 Aneesh Shastry,
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p/>
+ * Purpose: An iOS application for Student Course Database to Add/Remove Course, Add/Remove Student and Enroll/Drop students from courses using SQLite
+ *
+ * @author Aneesh Shastry ashastry@asu.edu
+ *         MS Computer Science, CIDSE, IAFSE, Arizona State University
+ * @version April 11, 2015
+ */
+
+
 
 #import "StudentListTable.h"
 #import "ViewController.h"
@@ -28,23 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    /*
-    self.title = @"Student List";
-    self.studentTable.dataSource = self;
-    
-    self.studentList = [[NSMutableArray alloc] init];
-    
-    
-    
-    [self.studentList addObject:@"Student 1"];
-    [self.studentList addObject:@"Student 2"];
-    [self.studentList addObject:@"Student 3"];
-    NSLog(@"No of rows %lu",[self.studentList count] );
-    [self.studentTable reloadData];
-     */
-    
-    self.studentTable.dataSource = self;
+     self.studentTable.dataSource = self;
     self.query = [NSString stringWithFormat:@"select name from student,studenttakes,course where course.coursename = '%@' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;",self.selectedCourse];
   //  self.crsDB = [[CourseDBManager alloc] initDatabaseName:@"coursedb"];
     self.navigationItem.title = self.selectedCourse; // stringByAppendingString:@" Students"];
@@ -52,8 +52,6 @@
     UIBarButtonItem *btnDel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(delClicked:)];
     
     UIBarButtonItem *btnAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked:)];
-    
-
     
     self.navigationItem.rightBarButtonItems = @[btnDel,btnAdd];
     
@@ -86,7 +84,7 @@
     self.tempSender = sender;
     
     UIAlertView *addAlert = [[UIAlertView alloc] initWithTitle:@"Add"
-                                                          message:@"Add a New student to this course ?"
+                                                          message:@"Enroll a student to this course ?"
                                                          delegate:self
                                                 cancelButtonTitle:@"NO"
                                                 otherButtonTitles:@"YES", nil];
@@ -121,7 +119,7 @@
             NSString* queryString = [[@"select * from course where coursename = '"
                                       stringByAppendingString: self.selectedCourse]
                                      stringByAppendingString:@"';"];
-            NSLog(queryString);
+           // NSLog(queryString);
             NSMutableArray * queryRes = [self.crsDB executeQuery:queryString];
             
             
@@ -133,7 +131,7 @@
             queryString = [[@"delete from course where coursename = '"
                             stringByAppendingString: self.selectedCourse]
                            stringByAppendingString:@"';"];
-            NSLog(queryString);
+          //  NSLog(queryString);
             queryRes = [self.crsDB executeQuery:queryString];
             
             
@@ -141,7 +139,7 @@
             queryString = [[@"delete from studenttakes where courseid = "
                             stringByAppendingString: courseID]
                            stringByAppendingString:@";"];
-            NSLog(queryString);
+           // NSLog(queryString);
             queryRes = [self.crsDB executeQuery:queryString];
             
             
@@ -201,13 +199,7 @@
     [self.studentTable reloadData];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    // Return the number of rows in the section.
-    
-   // return [self.studentList count];
-    //  NSLog([NSString stringWithFormat:@"No of rows %f",[self.courseList count] ]);
-    //   return [[self.wpLib allKeys] count];
-    
+   
     NSArray * queryRes = [self.crsDB executeQuery:self.query];
     return queryRes.count;
     
@@ -216,30 +208,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-   /*
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-    }
-    
-    NSArray *keys = self.studentList;
-    //  NSLog(@"Keys: %@",keys);
-    
-    NSString * ret = @"unknown";
-    
-    if(indexPath.row < keys.count){
-        ret = keys[indexPath.row];
-    }
-    
-    cell.textLabel.text = ret;
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    
-    // Configure the cell...
-    
-    return cell;
-    */
-    
+  
     
     NSArray * queryRes = [self.crsDB executeQuery:self.query];
     
@@ -264,15 +233,12 @@
     
     if([segue.identifier isEqualToString:@"StudentDetails"]){
         NSIndexPath * indexPath = [self.studentTable indexPathForSelectedRow];
-        // NSArray * keys = [self.wpLib allKeys];
          NSMutableArray  *queryRes = [self.crsDB executeQuery:self.query];
         NSMutableArray * keys = queryRes;
         NSMutableArray *ret  =@"Unknown";
         if(indexPath.row < keys.count){
             ret = keys[[indexPath row]];
-       //     ret = [[keys objectAtIndex:indexPath.row] description];
-           // ret = keys[indexPath.row];
-        }
+         }
         
         NSString *returnValue = ret[0];
        
@@ -280,10 +246,7 @@
         destViewController.crsDB = self.crsDB;
         destViewController.studentName = returnValue;
         destViewController.selectedCourse = self.selectedCourse;
-        //   destViewController.waypointName = ret;
-        //    destViewController.wpLib = self.wpLib;
-        //   destViewController.wpList = self.waypointList;
-    }else if([segue.identifier isEqualToString:@"SelectStudent"]){
+     }else if([segue.identifier isEqualToString:@"SelectStudent"]){
         StudentSelectView * destViewController = segue.destinationViewController;
         destViewController.selectedCourse = self.selectedCourse;
         destViewController.crsDB = self.crsDB;
@@ -291,14 +254,6 @@
         
     }
    
-    
-    
-    
-    
-    
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 @end

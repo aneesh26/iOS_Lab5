@@ -1,10 +1,26 @@
-//
-//  CourseViewTable.m
-//  StudentDB
-//
-//  Created by ashastry on 4/8/15.
-//  Copyright (c) 2015 Aneesh Shastry. All rights reserved.
-//
+/**
+ * Copyright 2015 Aneesh Shastry,
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p/>
+ * Purpose: An iOS application for Student Course Database to Add/Remove Course, Add/Remove Student and Enroll/Drop students from courses using SQLite
+ *
+ * @author Aneesh Shastry ashastry@asu.edu
+ *         MS Computer Science, CIDSE, IAFSE, Arizona State University
+ * @version April 11, 2015
+ */
+
+
 
 #import "CourseViewTable.h"
 #import "ViewController.h"
@@ -38,81 +54,22 @@
     
     self.navigationItem.rightBarButtonItem = btnAdd;
    
-    
-  /*
-    self.courseTableView.dataSource = self;
-    
-    self.courseList = [[NSMutableArray alloc] init];
-    
-   
-    
-    [self.courseList addObject:@"Course 1"];
-    [self.courseList addObject:@"Course 2"];
-    [self.courseList addObject:@"Course 3"];
-    NSLog(@"No of rows %lu",[self.courseList count] );
-    [self.courseTableView reloadData];
-    
-    */
-    /*
-    
-    
-    NSString *docsDir;
-    NSArray *dirPaths;
-    
-    // Get the documents directory
-    dirPaths = NSSearchPathForDirectoriesInDomains(
-                                                   NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    docsDir = dirPaths[0];
-    
-    // Build the path to the database file
-    _databasePath = [[NSString alloc]
-                     initWithString: [docsDir stringByAppendingPathComponent:
-                                      @"contacts.db"]];
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    
-    if ([filemgr fileExistsAtPath: _databasePath ] == NO)
-    {
-        const char *dbpath = [_databasePath UTF8String];
-        
-        if (sqlite3_open(dbpath, &_courseDB) == SQLITE_OK)
-        {
-            char *errMsg;
-            const char *sql_stmt =
-            "CREATE TABLE IF NOT EXISTS CONTACTS (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, ADDRESS TEXT, PHONE TEXT)";
-            
-            if (sqlite3_exec(_courseDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK)
-            {
-                _status.text = @"Failed to create table";
-            }
-            sqlite3_close(_courseDB);
-        } else {
-            _status.text = @"Failed to open/create database";
-        }
-    }
-    
-    */
- }
+  }
 
 - (void)addClicked:(id)sender{
     
     UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Add Course / Student"
                                                           message:@"What would you like to add?"
                                                          delegate:self
-                                                cancelButtonTitle:@"Course"
-                                                otherButtonTitles:@"Student", nil];
-    
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Course",@"Student", nil];
     
     
     self.tempSender = sender;
     
     
     [deleteAlert show];
- 
-   // NSArray * addRes = [self.crsDB executeQuery:@"insert into course values ('New Course',8)"];
-    //[self.courseTableView reloadData];
-    
+   
     
 }
 
@@ -135,55 +92,20 @@
 -(void) viewWillAppear:(BOOL)animated{
     
     [self.courseTableView reloadData];
-    NSLog(@"Running View will appear");
+    //NSLog(@"Running View will appear");
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    
-   // return [self.courseList count];
-  //  NSLog([NSString stringWithFormat:@"No of rows %f",[self.courseList count] ]);
-    //   return [[self.wpLib allKeys] count];
-    
     NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
     return queryRes.count;
     
     
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
-    NSString * ret = @"unknown";
-    
-    if(queryRes.count> indexPath.row){
-        ret = queryRes[indexPath.row][0];
-    }
-    
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-    }
-    
-    NSArray *keys = self.courseList;
-    //  NSLog(@"Keys: %@",keys);
-    
-  
-    
-    cell.textLabel.text = ret;
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
-*/
 
 - (NSArray *) getDataQuery{
     NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
@@ -192,13 +114,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
- //   NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
-   // self.queryResult =
     NSArray * queryRes = [self getDataQuery];
     
-    
-   // NSArray * addRes = [self.crsDB executeQuery:@"select coursename from course;"];
     NSString * whichCrs = @"unknown";
     if(queryRes.count> indexPath.row){
         whichCrs = queryRes[indexPath.row][0];
@@ -215,7 +132,6 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    //  NSLog(@"Add button Clicked");
     
     
     NSString *title = [alertView title];
@@ -235,16 +151,14 @@
            [self performSegueWithIdentifier:@"AddStudent" sender:self.tempSender];
             
         }
+        else if([buttonText isEqualToString:@"Cancel"])
+        {
+            
+            // Do Nothing
+            
+        }
         
-    }//else if([title isEqual:@"Waypoint Removed"]){
-      //  [self.navigationController popViewControllerAnimated:YES];
-   // }
-    
-    
-    
-    
-    
-    
+    }
 }
 
 
@@ -252,21 +166,6 @@
     
     if([segue.identifier isEqualToString:@"CourseToStudent"]){
         NSIndexPath * indexPath = [self.courseTableView indexPathForSelectedRow];
-        // NSArray * keys = [self.wpLib allKeys];
-        
-       /* NSArray * keys = self.courseList;
-        NSString * ret  =@"Unknown";
-        if(indexPath.row < keys.count){
-            ret = keys[indexPath.row];
-        }
-        
-        ViewController * destViewController = segue.destinationViewController;
-        
-        */
-     //   destViewController.waypointName = ret;
-    //    destViewController.wpLib = self.wpLib;
-     //   destViewController.wpList = self.waypointList;
-        
         
         
         NSArray * queryRes = [self.crsDB executeQuery:@"select coursename from course;"];
@@ -275,7 +174,7 @@
             whichCrs = queryRes[indexPath.row][0];
         }
         StudentListTable *destViewController = segue.destinationViewController;
-        NSLog(@"prepareForSeque setting course to %@",whichCrs);
+       // NSLog(@"prepareForSeque setting course to %@",whichCrs);
         destViewController.parent = self;
         destViewController.selectedCourse = whichCrs;
         destViewController.crsDB = self.crsDB;
@@ -297,14 +196,8 @@
         destViewController.isNewStudent = YES;
 
     }
-    
-    
-    
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
 
+}
 
 
 @end
