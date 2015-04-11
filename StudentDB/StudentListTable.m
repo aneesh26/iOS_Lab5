@@ -9,12 +9,16 @@
 #import "StudentListTable.h"
 #import "ViewController.h"
 #import "StudentDetails.h"
+#import "StudentSelectView.h"
 
 @interface StudentListTable()
 @property (strong, nonatomic) IBOutlet UITableView *studentTable;
 @property (strong, nonatomic) NSMutableArray * studentList;
 
 @property (strong, nonatomic) NSString * query;
+
+@property (strong, nonatomic) NSArray * studentListQuery;
+@property (strong, nonatomic) id  tempSender;
 
 
 @end
@@ -47,7 +51,11 @@
     
     UIBarButtonItem *btnDel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(delClicked:)];
     
-    self.navigationItem.rightBarButtonItem = btnDel;
+    UIBarButtonItem *btnAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked:)];
+    
+
+    
+    self.navigationItem.rightBarButtonItems = @[btnDel,btnAdd];
     
     
     
@@ -69,6 +77,25 @@
    
     
 }
+
+-(void)addClicked:(id)sender{
+    
+    // delete from course where coursename='CSE 598 DAA';
+    
+    //get courseid
+    self.tempSender = sender;
+    
+    UIAlertView *addAlert = [[UIAlertView alloc] initWithTitle:@"Add"
+                                                          message:@"Add a New student to this course ?"
+                                                         delegate:self
+                                                cancelButtonTitle:@"NO"
+                                                otherButtonTitles:@"YES", nil];
+    [addAlert show];
+    
+    
+}
+
+
 
 
 
@@ -124,9 +151,27 @@
             
         }
         
-    }//else if([title isEqual:@"Waypoint Removed"]){
-      //  [self.navigationController popViewControllerAnimated:YES];
-   // }
+    }else if([title isEqual:@"Add"]){
+        
+        NSString *buttonText = [alertView buttonTitleAtIndex:buttonIndex];
+        
+        if([buttonText isEqualToString:@"NO"])
+        {
+            
+        }
+        else if([buttonText isEqualToString:@"YES"])
+        {
+            
+            [self performSegueWithIdentifier:@"SelectStudent" sender:self.tempSender];
+            // add code to select student from picker and link it to the course
+            
+            
+         //   [self.navigationController popViewControllerAnimated:YES];
+            
+            
+        }
+        
+    }
     
     
     
@@ -134,6 +179,8 @@
     
     
 }
+
+
 
 
 
@@ -195,6 +242,7 @@
     
     
     NSArray * queryRes = [self.crsDB executeQuery:self.query];
+    
     NSString * whichStud = @"unknown";
     if(queryRes.count> indexPath.row){
         whichStud = queryRes[indexPath.row][0];
@@ -235,6 +283,12 @@
         //   destViewController.waypointName = ret;
         //    destViewController.wpLib = self.wpLib;
         //   destViewController.wpList = self.waypointList;
+    }else if([segue.identifier isEqualToString:@"SelectStudent"]){
+        StudentSelectView * destViewController = segue.destinationViewController;
+        destViewController.selectedCourse = self.selectedCourse;
+        destViewController.crsDB = self.crsDB;
+        
+        
     }
    
     
