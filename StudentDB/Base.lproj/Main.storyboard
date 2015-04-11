@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLM-Ti-9nE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922.5" y="1060"/>
+            <point key="canvasLocation" x="-867" y="1060"/>
         </scene>
         <!--Student List-->
         <scene sceneID="Wbb-z2-kGC">
@@ -194,37 +194,37 @@
                                     <rect key="frame" x="70" y="175" width="260" height="30"/>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-cq-W6x">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="195" y="112" width="10" height="21"/>
-                                </variation>
-                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-N6-Ugf">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="294" width="400" height="162"/>
                                 </variation>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-cq-W6x">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="112" width="368" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="7DP-qc-6zl"/>
                                 <exclude reference="D8F-mF-nbX"/>
-                                <exclude reference="6aY-cq-W6x"/>
                                 <exclude reference="1dq-N6-Ugf"/>
+                                <exclude reference="6aY-cq-W6x"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="7DP-qc-6zl"/>
                                 <include reference="D8F-mF-nbX"/>
-                                <include reference="6aY-cq-W6x"/>
                                 <include reference="1dq-N6-Ugf"/>
+                                <include reference="6aY-cq-W6x"/>
                             </mask>
                         </variation>
                     </view>
@@ -237,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7u-l7-rcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652.5" y="1060"/>
+            <point key="canvasLocation" x="562.5" y="1060"/>
         </scene>
         <!--Student Details-->
         <scene sceneID="tne-QT-ifu">
@@ -287,30 +287,6 @@
                                     <rect key="frame" x="90" y="217" width="42" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Course" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzz-ti-xLc">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="40" y="284" width="92" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop Course" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beA-7a-EIg">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="34" y="325" width="98" height="21"/>
-                                </variation>
-                            </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lf4-Qz-mgu">
-                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="418" width="400" height="162"/>
-                                </variation>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br7-EV-8ph">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -343,22 +319,6 @@
                                     <rect key="frame" x="152" y="213" width="209" height="30"/>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WN9-rs-cOt">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="321" width="209" height="30"/>
-                                </variation>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fS5-N3-wZg">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="280" width="209" height="30"/>
-                                </variation>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -367,15 +327,10 @@
                                 <exclude reference="jBc-hi-Dy3"/>
                                 <exclude reference="dr4-jV-2kL"/>
                                 <exclude reference="qUv-Yq-Myy"/>
-                                <exclude reference="Wzz-ti-xLc"/>
-                                <exclude reference="beA-7a-EIg"/>
-                                <exclude reference="Lf4-Qz-mgu"/>
                                 <exclude reference="br7-EV-8ph"/>
                                 <exclude reference="bFO-Bc-ORW"/>
                                 <exclude reference="gdb-kt-zu2"/>
                                 <exclude reference="4JZ-OT-CiF"/>
-                                <exclude reference="WN9-rs-cOt"/>
-                                <exclude reference="fS5-N3-wZg"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -384,15 +339,10 @@
                                 <include reference="jBc-hi-Dy3"/>
                                 <include reference="dr4-jV-2kL"/>
                                 <include reference="qUv-Yq-Myy"/>
-                                <include reference="Wzz-ti-xLc"/>
-                                <include reference="beA-7a-EIg"/>
-                                <include reference="Lf4-Qz-mgu"/>
                                 <include reference="br7-EV-8ph"/>
                                 <include reference="bFO-Bc-ORW"/>
                                 <include reference="gdb-kt-zu2"/>
                                 <include reference="4JZ-OT-CiF"/>
-                                <include reference="WN9-rs-cOt"/>
-                                <include reference="fS5-N3-wZg"/>
                             </mask>
                         </variation>
                     </view>
@@ -400,8 +350,6 @@
                     <navigationItem key="navigationItem" title="Student Details" id="2o1-Zk-t5G"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="sAddCourseTF" destination="fS5-N3-wZg" id="n0w-1s-X5R"/>
-                        <outlet property="sDropCourseTF" destination="WN9-rs-cOt" id="vAP-FR-KKr"/>
                         <outlet property="sEmailTF" destination="4JZ-OT-CiF" id="UzR-tE-OYa"/>
                         <outlet property="sIdTF" destination="bFO-Bc-ORW" id="dhd-aa-7pN"/>
                         <outlet property="sMajorTF" destination="gdb-kt-zu2" id="hvW-2u-CCB"/>
@@ -410,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148.5" y="1060"/>
+            <point key="canvasLocation" x="-154.5" y="1060"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
