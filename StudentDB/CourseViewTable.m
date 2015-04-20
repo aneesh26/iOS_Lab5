@@ -58,7 +58,7 @@
 
 - (void)addClicked:(id)sender{
     
-    UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Add Course / Student"
+    UIAlertView *addAlert = [[UIAlertView alloc] initWithTitle:@"Add Course / Student"
                                                           message:@"What would you like to add?"
                                                          delegate:self
                                                 cancelButtonTitle:@"Cancel"
@@ -68,7 +68,7 @@
     self.tempSender = sender;
     
     
-    [deleteAlert show];
+    [addAlert show];
    
     
 }

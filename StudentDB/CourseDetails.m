@@ -36,19 +36,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.cIDTF.keyboardType = UIKeyboardTypeNumberPad;
         UIBarButtonItem *btnSave = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveClicked:)];
 
         self.navigationItem.rightBarButtonItem = btnSave;
 }
 
 - (void)saveClicked:(id)sender{
-    
+    NSNumber *testForNum;
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    testForNum = [formatter numberFromString:self.cIDTF.text];
     if([self.cNameTF.text isEqual:@""] || [self.cIDTF.text isEqual:@""]){
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Warning!" message:[NSString stringWithFormat:@"Incomplete / Incorrect Input"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         alert.alertViewStyle = UIAlertViewStyleDefault;
         [alert show];
         
-    }else{
+    }
+    else if(!testForNum) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Warning!" message:[NSString stringWithFormat:@"Course ID accepts only numeric values"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alert.alertViewStyle = UIAlertViewStyleDefault;
+        [alert show];
+    }
+    
+    else{
         
         
         //get the course ID
@@ -56,7 +66,7 @@
         NSString* queryString = [[@"select courseid from course where courseid = "
                         stringByAppendingString: self.cIDTF.text]
                        stringByAppendingString:@";"];
-        NSLog(queryString);
+      //  NSLog(queryString);
         NSArray * queryRes = [self.crsDB executeQuery:queryString];
         
         if([queryRes count] > 0){
@@ -75,7 +85,7 @@
                               stringByAppendingString:@"',"]
                               stringByAppendingString:self.cIDTF.text]
                               stringByAppendingString:@");"];
-            NSLog(queryString);
+       //     NSLog(queryString);
   
             NSArray * addRes = [self.crsDB executeQuery:queryString];
     

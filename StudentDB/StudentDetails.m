@@ -31,6 +31,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *sEmailTF;
 @property (weak, nonatomic) IBOutlet UITextField *sAddCourseTF;
 @property (weak, nonatomic) IBOutlet UITextField *sDropCourseTF;
+@property (weak, nonatomic) IBOutlet UIButton *selectStudent;
+
+
+
 
 @end
 
@@ -41,6 +45,7 @@
     
     self.title = @"Student Details";
     
+    self.sIdTF.keyboardType = UIKeyboardTypeNumberPad;
     
     
     
@@ -49,9 +54,13 @@
         UIBarButtonItem *btnAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(addClicked:)];
         self.navigationItem.rightBarButtonItem = btnAdd;
         self.isNewStudent = NO;
+        [self.selectStudent setTag:1234];
+        [self.selectStudent addTarget:self action:@selector(selectStudentClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     else{
         self.title = @"Student Details";
+        
+        self.selectStudent.hidden = YES;
         
         UIBarButtonItem *btnDel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(delClicked:)];
         UIBarButtonItem *btnDrop = [[UIBarButtonItem alloc] initWithTitle:@"Drop" style:UIBarButtonItemStylePlain target:self action:@selector(dropClicked:)];
@@ -88,13 +97,28 @@
 
 - (void) addClicked:(id)sender{
     
+    NSNumber *testForNum;
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    testForNum = [formatter numberFromString:self.sIdTF.text];
+    
+    
     
     if([self.sNameTF.text isEqual:@""] || [self.sMajorTF.text isEqual:@""] || [self.sEmailTF.text isEqual:@""] || [self.sIdTF.text isEqual:@""]){
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Warning!" message:[NSString stringWithFormat:@"Incomplete / Incorrect Input"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         alert.alertViewStyle = UIAlertViewStyleDefault;
         [alert show];
         
-    }else{
+    }
+    
+    else if(!testForNum) {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Warning!" message:[NSString stringWithFormat:@"Student ID accepts only numeric values"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    [alert show];
+    }
+    
+    else{
+        
+        
     
     
     //check if the student id exists
@@ -268,8 +292,83 @@
         }
         
     }
-    
-    
 }
+
+
+
+    - (IBAction)selectStudentClicked:(id)sender{
+        
+        [self.sNameTF setText:@""];
+        [self.sEmailTF setText:@""];
+        [self.sIdTF setText:@""];
+        [self.sMajorTF setText:@""];
+        
+        
+        ABPeoplePickerNavigationController *picker =
+        [[ABPeoplePickerNavigationController alloc] init];
+        picker.peoplePickerDelegate = self;
+        
+        [self presentModalViewController:picker animated:YES];
+        
+    }
+    
+    - (void)peoplePickerNavigationControllerDidCancel:
+    (ABPeoplePickerNavigationController *)peoplePicker
+    {
+        [self dismissModalViewControllerAnimated:YES ];
+    }
+
+    - (BOOL)peoplePickerNavigationController:
+    (ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier
+    {
+        return NO;
+    }
+
+   /*
+    
+    - (BOOL)peoplePickerNavigationController:
+    (ABPeoplePickerNavigationController *)peoplePicker
+        shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+    
+            [self displayPerson:person];
+            [self dismissModalViewControllerAnimated:YES];
+    
+            return NO;
+        }
+*/
+    - (void)peoplePickerNavigationController:
+    (ABPeoplePickerNavigationController *)peoplePicker
+          didSelectPerson:(ABRecordRef)person {
+        
+        [self displayPerson:person];
+        [self dismissModalViewControllerAnimated:YES];
+    
+    }
+
+
+    - (void)displayPerson:(ABRecordRef)person
+    {
+        NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person,
+                                                                        kABPersonFirstNameProperty);
+        [self.sNameTF setText:name];
+        
+        ABMultiValueRef emailMultiValue = ABRecordCopyValue(person, kABPersonEmailProperty);
+        NSArray *emailAddresses = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(emailMultiValue);
+        
+        if(emailAddresses.count > 0){
+            [self.sEmailTF setText:[emailAddresses objectAtIndex:0]];
+            CFRelease(emailMultiValue);
+        }
+        
+        
+        
+    }
+
+    
+    
+
 
 @end

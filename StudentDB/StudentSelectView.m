@@ -39,6 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.studentNameTF becomeFirstResponder];
     
     [self.courseNameTF setText:[[@"'" stringByAppendingString:self.selectedCourse ] stringByAppendingString:@"'"]];
     self.studentPicker = [[UIPickerView alloc] init];

@@ -25,10 +25,12 @@
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
 #import "CourseDBManager.h"
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface StudentDetails : UIViewController
+@interface StudentDetails : UIViewController <ABPeoplePickerNavigationControllerDelegate>
 @property (nonatomic,assign) BOOL * isNewStudent;
 @property (strong, nonatomic) CourseDBManager * crsDB;
 @property (strong, nonatomic) NSString * studentName;
 @property (strong, nonatomic) NSString * selectedCourse;
+- (IBAction)showPicker:(id)sender;
 @end

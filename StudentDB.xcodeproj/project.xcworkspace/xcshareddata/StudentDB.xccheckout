@@ -10,14 +10,14 @@
 	<string>StudentDB</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C12F2F291A762BBB7E9EEC5C06EB86E07B5F96A1</key>
+		<key>0A30346E021B462896B39EDFFA4DD868BBD57E71</key>
 		<string>https://github.com/aneesh26/iOS_Lab4</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>StudentDB.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C12F2F291A762BBB7E9EEC5C06EB86E07B5F96A1</key>
+		<key>0A30346E021B462896B39EDFFA4DD868BBD57E71</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C12F2F291A762BBB7E9EEC5C06EB86E07B5F96A1</string>
+	<string>0A30346E021B462896B39EDFFA4DD868BBD57E71</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C12F2F291A762BBB7E9EEC5C06EB86E07B5F96A1</string>
+			<string>0A30346E021B462896B39EDFFA4DD868BBD57E71</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iOS_Lab4</string>
 		</dict>
