@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p/>
- * Purpose: An iOS application for Student Course Database to Add/Remove Course, Add/Remove Student and Enroll/Drop students from courses using SQLite
+ * Purpose: An iOS application for Student Course Database to Add/Remove Course, Add/Remove Student and Enroll/Drop students from courses using SQLite. Select Student Name and Email address from address book
  *
  * @author Aneesh Shastry ashastry@asu.edu
  *         MS Computer Science, CIDSE, IAFSE, Arizona State University
- * @version April 11, 2015
+ * @version April 20, 2015
  */
+
 
 
 

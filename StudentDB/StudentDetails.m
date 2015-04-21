@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p/>
- * Purpose: An iOS application for Student Course Database to Add/Remove Course, Add/Remove Student and Enroll/Drop students from courses using SQLite
+ * Purpose: An iOS application for Student Course Database to Add/Remove Course, Add/Remove Student and Enroll/Drop students from courses using SQLite. Select Student Name and Email address from address book
  *
  * @author Aneesh Shastry ashastry@asu.edu
  *         MS Computer Science, CIDSE, IAFSE, Arizona State University
- * @version April 11, 2015
+ * @version April 20, 2015
  */
+
 
 
 
@@ -351,9 +352,12 @@
 
     - (void)displayPerson:(ABRecordRef)person
     {
-        NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person,
+        NSString* fname = (__bridge_transfer NSString*)ABRecordCopyValue(person,
                                                                         kABPersonFirstNameProperty);
-        [self.sNameTF setText:name];
+        
+        NSString* lname = (__bridge_transfer NSString*)ABRecordCopyValue(person,
+                                                                         kABPersonLastNameProperty);
+        [self.sNameTF setText:[fname stringByAppendingString:[@" " stringByAppendingString:lname]]];
         
         ABMultiValueRef emailMultiValue = ABRecordCopyValue(person, kABPersonEmailProperty);
         NSArray *emailAddresses = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(emailMultiValue);
